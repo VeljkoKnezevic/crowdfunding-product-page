@@ -1,0 +1,271 @@
+@use "sass:math";
+
+@function pxToRem($pxValue) {
+  @return math.div($pxValue, 16px) * 1rem;
+}
+
+.header,
+.main {
+  padding: 0 pxToRem(24px);
+}
+
+.header {
+  background-image: url(../images/image-hero-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: pxToRem(300px);
+  padding-block-start: pxToRem(32px);
+
+  &__links {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: pxToRem(24px);
+    width: 87.2%;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+    margin-block-start: pxToRem(36px);
+    display: none;
+
+    &__link {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      color: #000000;
+      text-decoration: none;
+      padding-block-end: pxToRem(24px);
+    }
+  }
+
+  &__images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__hamburger {
+    &__button {
+      background: none;
+      border: none;
+    }
+  }
+}
+
+.main {
+  padding-block-end: pxToRem(76px);
+  .intro {
+    margin-block-start: -52px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: pxToRem(8px);
+    padding: pxToRem(52px) pxToRem(24px) pxToRem(40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__image {
+      //marign izmedju headinga i ivice intro-a i visak od fotke
+      margin-block-start: calc(-52px - 28px);
+    }
+
+    &__heading {
+      margin-block-start: pxToRem(24px);
+      font-weight: 700;
+      font-size: pxToRem(20px);
+      line-height: pxToRem(24px);
+      text-align: center;
+      color: #000000;
+      width: 70%;
+    }
+
+    &__para {
+      margin-block-start: pxToRem(16px);
+      font-weight: 400;
+      font-size: pxToRem(14px);
+      line-height: pxToRem(24px);
+      text-align: center;
+
+      color: #7a7a7a;
+    }
+
+    &__button-and-bookmark {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-block-start: pxToRem(24px);
+    }
+
+    &__button {
+      background: #3cb3ab;
+      border-radius: pxToRem(33.5px);
+      font-family: "Commissioner";
+      font-style: normal;
+      font-weight: 700;
+      font-size: pxToRem(16px);
+      line-height: pxToRem(20px);
+      text-align: center;
+      color: #ffffff;
+      border: none;
+      padding: pxToRem(17px) pxToRem(42px) pxToRem(19px);
+    }
+
+    &__bookmark {
+      &__text {
+        display: none;
+      }
+    }
+  }
+
+  .backing {
+    background: #ffffff;
+    margin-block-start: pxToRem(24px);
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: pxToRem(32px) pxToRem(23px) pxToRem(40px) pxToRem(25px);
+
+    &__card {
+      text-align: center;
+
+      &--border {
+        border-bottom: 1px solid rgb(0, 0, 0, 0.15);
+      }
+
+      &__text {
+        font-weight: 400;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
+        color: #7a7a7a;
+        padding-block-end: pxToRem(24px);
+        margin-block-start: pxToRem(9px);
+
+        &--bold {
+          font-weight: 700;
+          font-size: pxToRem(32px);
+          line-height: pxToRem(39px);
+          color: #000000;
+          padding-block-start: pxToRem(24px);
+        }
+      }
+    }
+
+    &__bar {
+      height: pxToRem(12px);
+      width: 100%;
+      background: rgba(47, 47, 47, 0.05);
+      border-radius: pxToRem(33.5px);
+      //Padding u figmi minus padding od teskta
+      margin-block-start: calc(32px - 24px);
+
+      &--green {
+        height: pxToRem(12px);
+        width: 79%;
+        background-color: rgba(60, 179, 171, 1);
+        border-radius: pxToRem(33.5px);
+      }
+    }
+  }
+
+  .about {
+    margin-block-start: pxToRem(24px);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: pxToRem(8px);
+    padding: pxToRem(40px) 0;
+
+    &__heading {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0 pxToRem(24px);
+      color: #000000;
+    }
+
+    &__para {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      color: #7a7a7a;
+      margin: pxToRem(24px) pxToRem(24px) 0;
+      //Margin bottom iz figme minus margin top carda
+      margin-block-end: calc(32px - 24px);
+    }
+
+    &__card {
+      margin: pxToRem(24px) pxToRem(24px) 0;
+      padding: pxToRem(24px);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: pxToRem(8px);
+
+      &__heading {
+        font-weight: 700;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
+        color: #000000;
+      }
+
+      &__green {
+        font-weight: 500;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
+        color: #3cb3ab;
+        margin-block-start: pxToRem(8px);
+      }
+
+      &__para {
+        font-weight: 400;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(24px);
+        color: #7a7a7a;
+        margin-block-start: pxToRem(24px);
+      }
+
+      &__left {
+        font-size: pxToRem(15px);
+        line-height: pxToRem(18px);
+        color: #7a7a7a;
+        display: flex;
+        align-items: center;
+        margin-block-start: pxToRem(25px);
+
+        &--bold {
+          margin-inline-end: pxToRem(8px);
+          font-weight: 700;
+          font-size: pxToRem(32px);
+          line-height: pxToRem(39px);
+          color: #000000;
+        }
+      }
+
+      &__button {
+        background: #3cb3ab;
+        border-radius: 33.5px;
+        font-family: "Commissioner";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        border: none;
+        color: #ffffff;
+        padding: pxToRem(15px) pxToRem(33px) pxToRem(16px) pxToRem(32px);
+        margin-block-start: pxToRem(24px);
+      }
+      &--disabled {
+        opacity: 0.5;
+        border: none;
+        button {
+          background: #2f2f2f;
+          mix-blend-mode: normal;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

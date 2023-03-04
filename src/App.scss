@@ -4,6 +4,20 @@
   @return math.div($pxValue, 16px) * 1rem;
 }
 
+@mixin heading() {
+  font-weight: 700;
+  font-size: pxToRem(18px);
+  line-height: pxToRem(22px);
+  color: #000000;
+}
+
+@mixin para() {
+  font-weight: 400;
+  font-size: pxToRem(14px);
+  line-height: pxToRem(24px);
+  color: #7a7a7a;
+}
+
 .header,
 .main {
   padding: 0 pxToRem(24px);
@@ -102,13 +116,9 @@
     }
 
     &__para {
+      @include para();
       margin-block-start: pxToRem(16px);
-      font-weight: 400;
-      font-size: pxToRem(14px);
-      line-height: pxToRem(24px);
       text-align: center;
-
-      color: #7a7a7a;
     }
 
     &__button-and-bookmark {
@@ -200,18 +210,12 @@
     padding: pxToRem(40px) 0;
 
     &__heading {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 22px;
+      @include heading();
       margin: 0 pxToRem(24px);
-      color: #000000;
     }
 
     &__para {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 24px;
-      color: #7a7a7a;
+      @include para();
       margin: pxToRem(24px) pxToRem(24px) 0;
       //Margin bottom iz figme minus margin top carda
       margin-block-end: calc(32px - 24px);
@@ -240,10 +244,7 @@
       }
 
       &__para {
-        font-weight: 400;
-        font-size: pxToRem(14px);
-        line-height: pxToRem(24px);
-        color: #7a7a7a;
+        @include para();
         margin-block-start: pxToRem(24px);
       }
 
@@ -299,13 +300,10 @@
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     border-radius: 8px;
     margin: 0 pxToRem(24px);
-    padding: pxToRem(32px) pxToRem(24px);
+    padding: pxToRem(24px) pxToRem(24px) pxToRem(32px);
 
     &__heading {
-      font-weight: 700;
-      font-size: pxToRem(18px);
-      line-height: pxToRem(22px);
-      color: #000000;
+      @include heading();
 
       &-container {
         display: flex;
@@ -320,10 +318,7 @@
     }
 
     &__para {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 24px;
-      color: #7a7a7a;
+      @include para();
       margin-block-start: pxToRem(24px);
     }
 
@@ -337,10 +332,9 @@
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 8px;
-      padding: pxToRem(24px) pxToRem(24px) pxToRem(32px);
 
       &--no-reward {
-        padding-top: pxToRem(33px);
+        padding: pxToRem(33px) pxToRem(24px);
 
         h3 {
           margin-inline-start: pxToRem(16px);
@@ -360,12 +354,18 @@
         }
       }
 
+      &__content {
+        padding: pxToRem(24px);
+      }
+
       &__input {
         margin: 0;
         width: 24px;
         height: 24px;
-        background: #ffffff;
+        accent-color: #3cb3ab;
+        background-color: #ffffff;
         border: 1px solid rgba(0, 0, 0, 0.15);
+
         &-container {
           display: flex;
           align-items: center;
@@ -392,10 +392,7 @@
       }
 
       &__para {
-        font-weight: 400;
-        font-size: pxToRem(14px);
-        line-height: pxToRem(24px);
-        color: #7a7a7a;
+        @include para();
         margin-block-start: pxToRem(24px);
       }
 
@@ -414,6 +411,101 @@
           margin-inline-end: pxToRem(5px);
         }
       }
+    }
+
+    &__selected {
+      margin-block-start: pxToRem(24px);
+      padding: pxToRem(24px);
+      border-block-start: 1px solid rgba(0, 0, 0, 0.15);
+
+      &--no-reward {
+        button {
+          margin: pxToRem(24px) 25% 0;
+        }
+      }
+
+      &__text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        color: #7a7a7a;
+        text-align: center;
+      }
+
+      &__inputs {
+        display: flex;
+        justify-content: space-between;
+        margin-block-start: pxToRem(16px);
+      }
+
+      &__input {
+        width: 100%;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: pxToRem(33.5px);
+        color: #000000;
+        padding: pxToRem(15px) pxToRem(30px) pxToRem(16px) pxToRem(24px);
+
+        &::placeholder {
+          text-align: left;
+        }
+      }
+
+      &__button {
+        background: #3cb3ab;
+        border-radius: 33.5px;
+        font-family: "Commissioner";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        border: none;
+        color: #ffffff;
+        padding: pxToRem(15px) pxToRem(25px) pxToRem(16px) pxToRem(26px);
+        margin-inline-start: pxToRem(16px);
+      }
+    }
+  }
+
+  .thanks {
+    position: absolute;
+    left: 0;
+    top: pxToRem(143px);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: pxToRem(8px);
+    margin: 0 pxToRem(24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: pxToRem(32px) pxToRem(24px) pxToRem(40px);
+
+    &__heading {
+      @include heading();
+      margin-block-start: pxToRem(24px);
+    }
+
+    &__para {
+      @include para();
+      text-align: center;
+      margin-block-start: pxToRem(24px);
+    }
+
+    &__button {
+      font-family: "Commissioner";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: #ffffff;
+      background: #3cb3ab;
+      border: none;
+      border-radius: 33.5px;
+      padding: pxToRem(15px) pxToRem(32.5px) pxToRem(16px) pxToRem(33.5px);
+      margin-block-start: pxToRem(31.5px);
     }
   }
 }

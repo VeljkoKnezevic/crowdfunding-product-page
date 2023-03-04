@@ -5,9 +5,11 @@ import Hamburger from "../images/icon-hamburger.svg";
 import Bookmark from "../images/icon-bookmark.svg";
 import MastercraftLogo from "../images/logo-mastercraft.svg";
 import Modal from "./components/Modal";
+import Thanks from "./components/Thanks";
 
 function App() {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
+  const [isVisibleThanks, setIsVisibleThanks] = useState(false);
 
   const handleHamburgerClick = (e) => {
     const image = e.target;
@@ -26,7 +28,11 @@ function App() {
   return (
     <>
       <div id="bg-hamburger" />
-      {isVisibleModal ? <div id="bg-back" style={{ display: "block" }} /> : ""}
+      {isVisibleModal || isVisibleThanks ? (
+        <div id="bg-back" style={{ display: "block" }} />
+      ) : (
+        ""
+      )}
       <header className="header">
         <div className="header__images">
           <img src={Logo} alt="Crowdfund logo" />
@@ -55,7 +61,19 @@ function App() {
         </div>
       </header>
       <main className="main">
-        {isVisibleModal ? <Modal setIsVisibleModal={setIsVisibleModal} /> : ""}
+        {isVisibleModal ? (
+          <Modal
+            setIsVisibleThanks={setIsVisibleThanks}
+            setIsVisibleModal={setIsVisibleModal}
+          />
+        ) : (
+          ""
+        )}
+        {isVisibleThanks ? (
+          <Thanks setIsVisibleThanks={setIsVisibleThanks} />
+        ) : (
+          ""
+        )}
         <div className="intro">
           <img
             className="intro__image"

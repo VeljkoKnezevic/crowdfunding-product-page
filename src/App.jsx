@@ -1,10 +1,14 @@
+import { useState } from "react";
 import "./App.scss";
 import Logo from "../images/logo.svg";
 import Hamburger from "../images/icon-hamburger.svg";
 import Bookmark from "../images/icon-bookmark.svg";
 import MastercraftLogo from "../images/logo-mastercraft.svg";
+import Modal from "./components/Modal";
 
 function App() {
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
+
   const handleHamburgerClick = (e) => {
     const image = e.target;
     const links = e.target.parentElement.parentElement.parentElement.lastChild;
@@ -21,10 +25,11 @@ function App() {
 
   return (
     <>
+      <div id="bg-hamburger" />
+      {isVisibleModal ? <div id="bg-back" style={{ display: "block" }} /> : ""}
       <header className="header">
         <div className="header__images">
           <img src={Logo} alt="Crowdfund logo" />
-
           <button
             onClick={handleHamburgerClick}
             className="header__hamburger__button"
@@ -50,6 +55,7 @@ function App() {
         </div>
       </header>
       <main className="main">
+        {isVisibleModal ? <Modal setIsVisibleModal={setIsVisibleModal} /> : ""}
         <div className="intro">
           <img
             className="intro__image"
@@ -62,7 +68,11 @@ function App() {
             strain.
           </p>
           <div className="intro__button-and-bookmark">
-            <button type="button" className="intro__button">
+            <button
+              onClick={() => setIsVisibleModal(true)}
+              type="button"
+              className="intro__button"
+            >
               Back this project
             </button>
             <div className="intro__bookmark">
@@ -102,7 +112,7 @@ function App() {
           </p>
 
           <section className="about__card">
-            <h4 className="about__card__heading">Bamboo Stand</h4>{" "}
+            <h4 className="about__card__heading">Bamboo Stand</h4>
             <p className="about__card__green">Pledge $25 or more</p>
             <p className="about__card__para">
               You get an ergonomic stand made of natural bamboo. You&apos;ve
@@ -118,7 +128,7 @@ function App() {
             </button>
           </section>
           <section className="about__card">
-            <h4 className="about__card__heading">Black Edition Stand</h4>{" "}
+            <h4 className="about__card__heading">Black Edition Stand</h4>
             <div className="about__card__green">Pledge $75 or more</div>
             <p className="about__card__para">
               You get a Black Special Edition computer stand and a personal

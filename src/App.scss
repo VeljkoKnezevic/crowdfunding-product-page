@@ -9,6 +9,28 @@
   padding: 0 pxToRem(24px);
 }
 
+#bg-hamburger {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0.6;
+  display: none;
+}
+
+#bg-back {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  display: none;
+}
+
 .header {
   background-image: url(../images/image-hero-mobile.jpg);
   background-repeat: no-repeat;
@@ -264,6 +286,132 @@
           background: #2f2f2f;
           mix-blend-mode: normal;
           opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .popup {
+    position: absolute;
+    left: 0;
+    top: pxToRem(121px);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+    margin: 0 pxToRem(24px);
+    padding: pxToRem(32px) pxToRem(24px);
+
+    &__heading {
+      font-weight: 700;
+      font-size: pxToRem(18px);
+      line-height: pxToRem(22px);
+      color: #000000;
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &__close {
+      border: none;
+      background: none;
+    }
+
+    &__para {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      color: #7a7a7a;
+      margin-block-start: pxToRem(24px);
+    }
+
+    &__cards {
+      display: grid;
+      gap: pxToRem(24px);
+      margin-block-start: pxToRem(24px);
+    }
+
+    &__card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      padding: pxToRem(24px) pxToRem(24px) pxToRem(32px);
+
+      &--no-reward {
+        padding-top: pxToRem(33px);
+
+        h3 {
+          margin-inline-start: pxToRem(16px);
+        }
+
+        p {
+          margin-block-start: pxToRem(33px);
+        }
+      }
+
+      &--disabled {
+        opacity: 0.5;
+        border: none;
+
+        input {
+          opacity: 0;
+        }
+      }
+
+      &__input {
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        &-container {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &__heading {
+        font-weight: 700;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
+        color: #000000;
+      }
+
+      &__heading-and-pledge {
+        margin-inline-start: pxToRem(16px);
+      }
+
+      &__pledge {
+        font-weight: 500;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
+        color: #3cb3ab;
+        margin-block-start: pxToRem(8px);
+      }
+
+      &__para {
+        font-weight: 400;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(24px);
+        color: #7a7a7a;
+        margin-block-start: pxToRem(24px);
+      }
+
+      &__left {
+        font-weight: 400;
+        font-size: pxToRem(15px);
+        line-height: pxToRem(18px);
+        color: #7a7a7a;
+        margin-block-start: pxToRem(24px);
+
+        &--bold {
+          font-weight: 700;
+          font-size: pxToRem(18px);
+          line-height: pxToRem(22px);
+          color: #000000;
+          margin-inline-end: pxToRem(5px);
         }
       }
     }

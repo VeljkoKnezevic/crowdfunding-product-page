@@ -16,6 +16,7 @@ export default function Modal({ setIsVisibleModal, setIsVisibleThanks }) {
   const handleContinue = () => {
     setIsVisibleModal(false);
     setIsVisibleThanks(true);
+    window.scrollTo(0, 0);
   };
 
   return (

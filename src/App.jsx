@@ -10,26 +10,30 @@ import Thanks from "./components/Thanks";
 function App() {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const [isVisibleThanks, setIsVisibleThanks] = useState(false);
+  const [isVisibleHamburger, setIsVisibleHamburger] = useState(false);
 
   const handleHamburgerClick = (e) => {
-    const image = e.target;
-    const links = e.target.parentElement.parentElement.parentElement.lastChild;
-
-    image.classList.toggle("header__hamburger--show");
-    if (image.classList.contains("header__hamburger--show")) {
-      image.src = "../images/icon-close-menu.svg";
-      links.style.display = "flex";
+    const images = e.target.parentElement.parentElement;
+    if (isVisibleHamburger) {
+      setIsVisibleHamburger(false);
+      e.target.src = "../images/icon-hamburger.svg";
+      images.style.position = "static";
     } else {
-      image.src = "../images/icon-hamburger.svg";
-      links.style.display = "none";
+      setIsVisibleHamburger(true);
+      e.target.src = "../images/icon-close-menu.svg";
+      images.style.position = "relative";
     }
   };
 
   return (
     <>
-      <div id="bg-hamburger" />
+      {isVisibleHamburger ? (
+        <div id="bg-hamburger" style={{ display: "block" }} />
+      ) : (
+        ""
+      )}
       {isVisibleModal || isVisibleThanks ? (
-        <div id="bg-back" style={{ display: "block" }} />
+        <div id="bg-back" style={{ display: "flex" }} />
       ) : (
         ""
       )}
@@ -48,17 +52,21 @@ function App() {
             />
           </button>
         </div>
-        <div className="header__links">
-          <a href="./cangs" className="header__links__link">
-            About
-          </a>
-          <a href="./cangs" className="header__links__link">
-            Discover
-          </a>
-          <a href="./cangs" className="header__links__link">
-            Get Started
-          </a>
-        </div>
+        {isVisibleHamburger ? (
+          <div className="header__links" style={{ display: "flex" }}>
+            <a href="./cangs" className="header__links__link">
+              About
+            </a>
+            <a href="./cangs" className="header__links__link">
+              Discover
+            </a>
+            <a href="./cangs" className="header__links__link">
+              Get Started
+            </a>
+          </div>
+        ) : (
+          ""
+        )}
       </header>
       <main className="main">
         {isVisibleModal ? (

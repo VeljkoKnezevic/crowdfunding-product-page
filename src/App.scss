@@ -27,6 +27,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
   margin: 0;
   padding: 0;
   opacity: 0.6;
@@ -56,11 +57,11 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    padding: pxToRem(24px);
-    width: 87.2%;
+    left: 24px;
+    right: 24px;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
-    border-radius: 8px;
+    border-radius: pxToRem(8px);
     margin-block-start: pxToRem(36px);
     display: none;
 
@@ -70,7 +71,8 @@
       line-height: 22px;
       color: #000000;
       text-decoration: none;
-      padding-block-end: pxToRem(24px);
+      padding: pxToRem(24px);
+      border-block-start: 1px solid rgba(47, 47, 47, 0.1);
     }
   }
 

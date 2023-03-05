@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
-import Logo from "../images/logo.svg";
-import Hamburger from "../images/icon-hamburger.svg";
+
 import Bookmark from "../images/icon-bookmark.svg";
 import MastercraftLogo from "../images/logo-mastercraft.svg";
 import Modal from "./components/Modal";
 import Thanks from "./components/Thanks";
+import { HeaderSmallScreen, HeaderBigScreen } from "./components/Header";
 
 function App() {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const [isVisibleThanks, setIsVisibleThanks] = useState(false);
   const [isVisibleHamburger, setIsVisibleHamburger] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const breakpoint = 800;
 
   const handleHamburgerClick = (e) => {
     const images = e.target.parentElement.parentElement;
@@ -25,6 +27,16 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const handleResizeWindow = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResizeWindow);
+
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
+
   return (
     <>
       {isVisibleHamburger ? (
@@ -37,37 +49,16 @@ function App() {
       ) : (
         ""
       )}
-      <header className="header">
-        <div className="header__images">
-          <img src={Logo} alt="Crowdfund logo" />
-          <button
-            onClick={handleHamburgerClick}
-            className="header__hamburger__button"
-            type="button"
-          >
-            <img
-              className="header__hamburger"
-              src={Hamburger}
-              alt="Hamburger menu icon"
-            />
-          </button>
-        </div>
-        {isVisibleHamburger ? (
-          <div className="header__links" style={{ display: "flex" }}>
-            <a href="./cangs" className="header__links__link">
-              About
-            </a>
-            <a href="./cangs" className="header__links__link">
-              Discover
-            </a>
-            <a href="./cangs" className="header__links__link">
-              Get Started
-            </a>
-          </div>
-        ) : (
-          ""
-        )}
-      </header>
+
+      {windowWidth > breakpoint ? (
+        <HeaderBigScreen />
+      ) : (
+        <HeaderSmallScreen
+          handleHamburgerClick={handleHamburgerClick}
+          isVisibleHamburger={isVisibleHamburger}
+        />
+      )}
+
       <main className="main">
         {isVisibleModal ? (
           <Modal
@@ -108,17 +99,19 @@ function App() {
           </div>
         </div>
         <div className="backing">
-          <div className="backing__card backing__card--border">
-            <p className="backing__card__text--bold">$89,914</p>
-            <p className="backing__card__text">of $100,000 backed</p>
-          </div>
-          <div className="backing__card backing__card--border">
-            <p className="backing__card__text--bold">5,007</p>
-            <p className="backing__card__text">total backers</p>
-          </div>
-          <div className="backing__card">
-            <p className="backing__card__text--bold">56</p>
-            <p className="backing__card__text"> days left</p>
+          <div className="backing__content">
+            <div className="backing__card backing__card--border">
+              <p className="backing__card__text--bold">$89,914</p>
+              <p className="backing__card__text">of $100,000 backed</p>
+            </div>
+            <div className="backing__card backing__card--border">
+              <p className="backing__card__text--bold">5,007</p>
+              <p className="backing__card__text">total backers</p>
+            </div>
+            <div className="backing__card">
+              <p className="backing__card__text--bold">56</p>
+              <p className="backing__card__text"> days left</p>
+            </div>
           </div>
           <div className="backing__bar">
             <div className="backing__bar--green" />
@@ -138,50 +131,62 @@ function App() {
           </p>
 
           <section className="about__card">
-            <h4 className="about__card__heading">Bamboo Stand</h4>
-            <p className="about__card__green">Pledge $25 or more</p>
+            <div className="about__card__heading-and-pledge">
+              <h4 className="about__card__heading">Bamboo Stand</h4>
+              <p className="about__card__green">Pledge $25 or more</p>
+            </div>
             <p className="about__card__para">
               You get an ergonomic stand made of natural bamboo. You&apos;ve
               helped us launch our promotional campaign, and you&apos;ll be
               added to a special Backer member list.
             </p>
-            <p className="about__card__left">
-              <span className="about__card__left--bold">101</span>
-              left
-            </p>
-            <button className="about__card__button" type="button">
-              Select Reward
-            </button>
+            <div className="about__card__left-and-button">
+              <p className="about__card__left">
+                <span className="about__card__left--bold">101</span>
+                left
+              </p>
+              <button className="about__card__button" type="button">
+                Select Reward
+              </button>
+            </div>
           </section>
           <section className="about__card">
-            <h4 className="about__card__heading">Black Edition Stand</h4>
-            <div className="about__card__green">Pledge $75 or more</div>
+            <div className="about__card__heading-and-pledge">
+              <h4 className="about__card__heading">Black Edition Stand</h4>
+              <div className="about__card__green">Pledge $75 or more</div>
+            </div>
             <p className="about__card__para">
               You get a Black Special Edition computer stand and a personal
               thank you. You&apos;ll be added to our Backer member list.
               Shipping is included.
             </p>
-            <p className="about__card__left">
-              <span className="about__card__left--bold">64</span> left
-            </p>
-            <button className="about__card__button" type="button">
-              Select Reward
-            </button>
+            <div className="about__card__left-and-button">
+              <p className="about__card__left">
+                <span className="about__card__left--bold">64</span> left
+              </p>
+              <button className="about__card__button" type="button">
+                Select Reward
+              </button>
+            </div>
           </section>
           <section className="about__card about__card--disabled">
-            <h4 className="about__card__heading">Mahogany Special Edition</h4>
-            <div className="about__card__green"> Pledge $200 or more</div>
+            <div className="about__card__heading-and-pledge">
+              <h4 className="about__card__heading">Mahogany Special Edition</h4>
+              <div className="about__card__green"> Pledge $200 or more</div>
+            </div>
             <p className="about__card__para">
               You get two Special Edition Mahogany stands, a Backer T-Shirt, and
               a personal thank you. You&apos;ll be added to our Backer member
               list. Shipping is included.
             </p>
-            <p className="about__card__left">
-              <span className="about__card__left--bold">0</span> left
-            </p>
-            <button className="about__card__button" type="button" disabled>
-              Out of Stock
-            </button>
+            <div className="about__card__left-and-button">
+              <p className="about__card__left">
+                <span className="about__card__left--bold">0</span> left
+              </p>
+              <button className="about__card__button" type="button" disabled>
+                Out of Stock
+              </button>
+            </div>
           </section>
         </div>
       </main>

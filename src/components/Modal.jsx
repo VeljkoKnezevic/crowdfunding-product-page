@@ -35,7 +35,7 @@ export default function Modal({ setIsVisibleModal, setIsVisibleThanks }) {
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
         the world?
       </p>
-      <div className="popup__cards">
+      <div className="popup__cards" name="pledge">
         <div className="popup__card popup__card--no-reward">
           <div className="popup__card__input-container">
             <input

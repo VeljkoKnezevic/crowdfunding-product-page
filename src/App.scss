@@ -218,9 +218,7 @@
 
     &__para {
       @include para();
-      margin: pxToRem(24px) pxToRem(24px) 0;
-      //Margin bottom iz figme minus margin top carda
-      margin-block-end: calc(32px - 24px);
+      margin: pxToRem(24px) pxToRem(24px) pxToRem(32px);
     }
 
     &__card {
@@ -508,6 +506,181 @@
       border-radius: 33.5px;
       padding: pxToRem(15px) pxToRem(32.5px) pxToRem(16px) pxToRem(33.5px);
       margin-block-start: pxToRem(31.5px);
+    }
+  }
+}
+
+@media (min-width: 50em) {
+  .header {
+    padding: pxToRem(48px) pxToRem(166px) 0;
+    background-image: url(../images/image-hero-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: pxToRem(400px);
+
+    &__nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__elements {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: pxToRem(33px);
+      }
+
+      &__element {
+        font-weight: 500;
+        font-size: pxToRem(13px);
+        line-height: pxToRem(16px);
+        color: #ffffff;
+      }
+    }
+  }
+
+  .main {
+    padding: 0;
+    padding-block-end: pxToRem(124px);
+    min-width: 730px;
+    max-width: 730px;
+    margin: 0 auto;
+
+    .intro {
+      //From para to the top plus margin between heading and para
+      margin-block-start: pxToRem(-105px + 15px);
+      padding: pxToRem(56px) pxToRem(72px) pxToRem(48px) pxToRem(48px);
+
+      &__image {
+        margin-block-start: calc(-56px - 28px);
+      }
+
+      &__heading {
+        width: 100%;
+        font-size: pxToRem(28px);
+        line-height: pxToRem(34px);
+      }
+
+      &__para {
+        font-size: pxToRem(16px);
+        line-height: pxToRem(20px);
+        margin-block-start: pxToRem(15px);
+      }
+
+      &__button-and-bookmark {
+        margin-block-start: pxToRem(40px);
+      }
+
+      &__bookmark {
+        display: flex;
+        align-items: center;
+        &__text {
+          display: block;
+          font-weight: 700;
+          font-size: pxToRem(16px);
+          line-height: pxToRem(20px);
+          color: #7a7a7a;
+          margin-inline-start: pxToRem(16px);
+        }
+      }
+    }
+
+    .backing {
+      padding: pxToRem(48px);
+      &__content {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      &__card {
+        text-align: start;
+        &:nth-child(1) {
+          padding-inline-end: pxToRem(42px);
+        }
+
+        &:nth-child(2) {
+          padding-inline-start: pxToRem(47px);
+          padding-inline-end: pxToRem(91px);
+        }
+
+        &:nth-child(3) {
+          padding-inline-start: pxToRem(47px);
+        }
+
+        &--border {
+          border-block-end: none;
+          border-inline-end: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        &__text {
+          margin-block-start: pxToRem(8px);
+          padding-block-end: 0;
+          font-size: pxToRem(15px);
+          line-height: pxToRem(18px);
+
+          &--bold {
+            padding-block-start: 0px;
+          }
+        }
+      }
+
+      &__bar {
+        margin-block-start: pxToRem(37px);
+      }
+    }
+
+    .about {
+      padding: pxToRem(48px) 0;
+
+      &__heading {
+        font-size: pxToRem(20px);
+        line-height: pxToRem(24px);
+        margin: 0 pxToRem(48px);
+      }
+
+      &__para {
+        font-size: pxToRem(16px);
+        line-height: pxToRem(30px);
+        margin: pxToRem(35px) pxToRem(48px) pxToRem(40px);
+      }
+
+      &__card {
+        margin: pxToRem(24px) pxToRem(48px) 0;
+        padding: pxToRem(38px) pxToRem(32px) pxToRem(32px);
+
+        &__heading-and-pledge {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &__heading {
+          font-size: pxToRem(18px);
+          line-height: pxToRem(22px);
+        }
+
+        &__green {
+          font-size: pxToRem(15px);
+          line-height: pxToRem(18px);
+          margin-block-start: 0;
+        }
+
+        &__para {
+          font-size: 16px;
+          line-height: 30px;
+        }
+
+        &__left-and-button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &__left {
+          margin-block-start: pxToRem(24px);
+        }
+      }
     }
   }
 }

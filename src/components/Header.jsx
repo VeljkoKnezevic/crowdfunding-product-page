@@ -21,7 +21,9 @@ const HeaderSmallScreen = function ({
   return (
     <header className="header">
       <div className="header__images">
-        <img src={Logo} alt="Crowdfund logo" />
+        <h1>
+          <img src={Logo} alt="Crowdfund logo" />
+        </h1>
         <button
           onClick={handleHamburgerClick}
           className="header__hamburger__button"

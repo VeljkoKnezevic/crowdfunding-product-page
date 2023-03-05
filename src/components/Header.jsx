@@ -59,7 +59,9 @@ const HeaderBigScreen = function () {
   return (
     <header className="header">
       <nav className="header__nav">
-        <img src={Logo} alt="Crowdfund logo" />
+        <h1>
+          <img src={Logo} alt="Crowdfund logo" />
+        </h1>
 
         <div className="header__nav__elements">
           <p className="header__nav__element">About</p>

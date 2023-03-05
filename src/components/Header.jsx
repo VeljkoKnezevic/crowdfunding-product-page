@@ -2,9 +2,22 @@ import Logo from "../../images/logo.svg";
 import Hamburger from "../../images/icon-hamburger.svg";
 
 const HeaderSmallScreen = function ({
-  handleHamburgerClick,
-  isVisibleHamburger
+  isVisibleHamburger,
+  setIsVisibleHamburger
 }) {
+  const handleHamburgerClick = (e) => {
+    const images = e.target.parentElement.parentElement;
+    if (isVisibleHamburger) {
+      setIsVisibleHamburger(false);
+      e.target.src = "../images/icon-hamburger.svg";
+      images.style.position = "static";
+    } else {
+      setIsVisibleHamburger(true);
+      e.target.src = "../images/icon-close-menu.svg";
+      images.style.position = "relative";
+    }
+  };
+
   return (
     <header className="header">
       <div className="header__images">

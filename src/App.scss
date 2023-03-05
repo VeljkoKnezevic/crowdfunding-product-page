@@ -57,8 +57,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 24px;
-    right: 24px;
+    left: pxToRem(24px);
+    right: pxToRem(24px);
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     border-radius: pxToRem(8px);
@@ -67,8 +67,8 @@
 
     &__link {
       font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
+      font-size: pxToRem(18px);
+      line-height: pxToRem(22px);
       color: #000000;
       text-decoration: none;
       padding: pxToRem(24px);
@@ -93,7 +93,7 @@
 .main {
   padding-block-end: pxToRem(76px);
   .intro {
-    margin-block-start: -52px;
+    margin-block-start: pxToRem(-52px);
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     border-radius: pxToRem(8px);
@@ -104,7 +104,7 @@
 
     &__image {
       //marign izmedju headinga i ivice intro-a i visak od fotke
-      margin-block-start: calc(-52px - 28px);
+      margin-block-start: pxToRem(calc(-52px - 28px));
     }
 
     &__heading {
@@ -146,6 +146,8 @@
     }
 
     &__bookmark {
+      border: none;
+      background: none;
       &__text {
         display: none;
       }
@@ -156,7 +158,7 @@
     background: #ffffff;
     margin-block-start: pxToRem(24px);
     border: 1px solid rgba(0, 0, 0, 0.0497193);
-    border-radius: 8px;
+    border-radius: pxToRem(8px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,7 +195,7 @@
       background: rgba(47, 47, 47, 0.05);
       border-radius: pxToRem(33.5px);
       //Padding u figmi minus padding od teskta
-      margin-block-start: calc(32px - 24px);
+      margin-block-start: pxToRem(calc(32px - 24px));
 
       &--green {
         height: pxToRem(12px);
@@ -267,12 +269,12 @@
 
       &__button {
         background: #3cb3ab;
-        border-radius: 33.5px;
+        border-radius: pxToRem(33.5px);
         font-family: "Commissioner";
         font-style: normal;
         font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
         display: flex;
         align-items: center;
         border: none;
@@ -298,7 +300,7 @@
     top: pxToRem(121px);
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
-    border-radius: 8px;
+    border-radius: pxToRem(8px);
     margin: 0 pxToRem(24px);
     padding: pxToRem(24px) pxToRem(24px) pxToRem(32px);
 
@@ -331,7 +333,7 @@
     &__card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.15);
-      border-radius: 8px;
+      border-radius: pxToRem(8px);
 
       &--no-reward {
         padding: pxToRem(33px) pxToRem(24px);
@@ -354,14 +356,14 @@
         }
       }
 
-      &__content {
+      &__container {
         padding: pxToRem(24px);
       }
 
       &__input {
         margin: 0;
-        width: 24px;
-        height: 24px;
+        width: pxToRem(24px);
+        height: pxToRem(24px);
         accent-color: #3cb3ab;
         background-color: #ffffff;
         border: 1px solid rgba(0, 0, 0, 0.15);
@@ -403,6 +405,10 @@
         color: #7a7a7a;
         margin-block-start: pxToRem(24px);
 
+        &--desktop {
+          display: none;
+        }
+
         &--bold {
           font-weight: 700;
           font-size: pxToRem(18px);
@@ -426,8 +432,8 @@
 
       &__text {
         font-weight: 400;
-        font-size: 14px;
-        line-height: 28px;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(28px);
         color: #7a7a7a;
         text-align: center;
       }
@@ -441,8 +447,8 @@
       &__input {
         width: 100%;
         font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
         text-align: center;
         border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: pxToRem(33.5px);
@@ -456,12 +462,12 @@
 
       &__button {
         background: #3cb3ab;
-        border-radius: 33.5px;
+        border-radius: pxToRem(33.5px);
         font-family: "Commissioner";
         font-style: normal;
         font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: pxToRem(14px);
+        line-height: pxToRem(17px);
         border: none;
         color: #ffffff;
         padding: pxToRem(15px) pxToRem(25px) pxToRem(16px) pxToRem(26px);
@@ -498,17 +504,19 @@
       font-family: "Commissioner";
       font-style: normal;
       font-weight: 700;
-      font-size: 14px;
-      line-height: 17px;
+      font-size: pxToRem(14px);
+      line-height: pxToRem(17px);
       color: #ffffff;
       background: #3cb3ab;
       border: none;
-      border-radius: 33.5px;
+      border-radius: pxToRem(33.5px);
       padding: pxToRem(15px) pxToRem(32.5px) pxToRem(16px) pxToRem(33.5px);
       margin-block-start: pxToRem(31.5px);
     }
   }
 }
+
+//Desktop
 
 @media (min-width: 50em) {
   .header {
@@ -535,6 +543,11 @@
         font-size: pxToRem(13px);
         line-height: pxToRem(16px);
         color: #ffffff;
+
+        &:hover {
+          text-decoration-line: underline;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -542,8 +555,8 @@
   .main {
     padding: 0;
     padding-block-end: pxToRem(124px);
-    min-width: 730px;
-    max-width: 730px;
+    min-width: pxToRem(730px);
+    max-width: pxToRem(730px);
     margin: 0 auto;
 
     .intro {
@@ -552,7 +565,7 @@
       padding: pxToRem(56px) pxToRem(72px) pxToRem(48px) pxToRem(48px);
 
       &__image {
-        margin-block-start: calc(-56px - 28px);
+        margin-block-start: pxToRem(calc(-56px - 28px));
       }
 
       &__heading {
@@ -571,16 +584,34 @@
         margin-block-start: pxToRem(40px);
       }
 
+      &__button {
+        margin-block-end: auto;
+        &:hover {
+          cursor: pointer;
+          background: #147a73;
+        }
+      }
+
       &__bookmark {
         display: flex;
         align-items: center;
+        border-radius: pxToRem(33.5px);
+
+        background: rgba(47, 47, 47, 0.05);
+        border: none;
+        &:hover {
+          cursor: pointer;
+          filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(109deg)
+            brightness(96%) contrast(86%);
+        }
+
         &__text {
           display: block;
           font-weight: 700;
           font-size: pxToRem(16px);
           line-height: pxToRem(20px);
           color: #7a7a7a;
-          margin-inline-start: pxToRem(16px);
+          padding: pxToRem(17px) pxToRem(24px) pxToRem(19px) pxToRem(16px);
         }
       }
     }
@@ -667,8 +698,8 @@
         }
 
         &__para {
-          font-size: 16px;
-          line-height: 30px;
+          font-size: pxToRem(16px);
+          line-height: pxToRem(30px);
         }
 
         &__left-and-button {
@@ -677,8 +708,186 @@
           justify-content: space-between;
         }
 
+        &__button:hover {
+          cursor: pointer;
+          background: #147a73;
+        }
+
         &__left {
           margin-block-start: pxToRem(24px);
+        }
+      }
+    }
+
+    .popup {
+      left: 25%;
+      right: 25%;
+      top: pxToRem(184px);
+      margin: 0;
+      padding: pxToRem(32px) pxToRem(48px) pxToRem(48.5px);
+
+      &__close:hover {
+        cursor: pointer;
+      }
+
+      &__heading-container {
+        align-items: start;
+      }
+
+      &__heading {
+        margin-top: pxToRem(calc(48.5px - 32px));
+        font-size: pxToRem(24px);
+        line-height: pxToRem(29px);
+      }
+
+      &__para {
+        font-size: pxToRem(16px);
+        line-height: pxToRem(30px);
+        margin-block-start: pxToRem(16px);
+      }
+
+      &__cards {
+        margin-block-start: pxToRem(32px);
+      }
+
+      &__card {
+        padding: pxToRem(30px) pxToRem(28px) pxToRem(32px);
+
+        &--no-reward {
+          h3 {
+            margin-inline-start: pxToRem(24px);
+          }
+
+          p {
+            margin-block-start: pxToRem(17px);
+          }
+        }
+
+        &__container {
+          padding: 0;
+        }
+
+        &__content {
+          display: flex;
+        }
+
+        &__heading-and-pledge {
+          display: flex;
+          align-items: center;
+          margin-inline-start: pxToRem(24px);
+        }
+
+        &__heading {
+          font-size: pxToRem(16px);
+          line-height: pxToRem(20px);
+
+          &:hover {
+            cursor: pointer;
+
+            color: #3cb3ab;
+          }
+        }
+
+        &__pledge {
+          margin: 0;
+          margin-inline-start: pxToRem(17px);
+          font-size: pxToRem(16px);
+          line-height: pxToRem(20px);
+        }
+
+        &__para {
+          margin-inline-start: pxToRem(calc(24px + 24px));
+          margin-block-start: pxToRem(17px);
+          font-size: pxToRem(15px);
+          line-height: pxToRem(28px);
+        }
+
+        &__left {
+          display: none;
+
+          &--desktop {
+            display: block;
+            margin-inline-start: auto;
+            font-weight: 400;
+            font-size: pxToRem(15px);
+            line-height: pxToRem(18px);
+
+            color: #7a7a7a;
+          }
+        }
+      }
+
+      &__selected {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        padding-block-start: pxToRem(24px);
+
+        &__inputs {
+          margin-block-start: 0;
+          margin-inline-start: auto;
+        }
+
+        &__input {
+          margin-inline-start: auto;
+          width: 26.5%;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        &__text {
+          font-size: pxToRem(15px);
+          line-height: pxToRem(28px);
+        }
+
+        &__button:hover {
+          background: #147a73;
+          cursor: pointer;
+        }
+
+        &--no-reward {
+          display: flex;
+
+          button {
+            margin: 0;
+            margin-inline-start: auto;
+            margin-block-start: pxToRem(24px);
+          }
+        }
+      }
+    }
+
+    .thanks {
+      left: 25%;
+      right: 25%;
+      padding: pxToRem(48px);
+      top: pxToRem(460px);
+
+      &__image {
+        width: pxToRem(90px);
+        height: pxToRem(90px);
+      }
+
+      &__heading {
+        font-size: pxToRem(24px);
+        line-height: pxToRem(29px);
+        margin-block-start: pxToRem(47.5px);
+      }
+
+      &__para {
+        font-size: pxToRem(16px);
+        line-height: pxToRem(30px);
+        margin-block-start: pxToRem(16px);
+      }
+
+      &__button {
+        margin-block-start: pxToRem(32px);
+
+        &:hover {
+          background: #147a73;
+          cursor: pointer;
         }
       }
     }

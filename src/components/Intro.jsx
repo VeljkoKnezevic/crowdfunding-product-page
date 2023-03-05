@@ -39,7 +39,7 @@ export default function Intro({ setIsVisibleModal }) {
               <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
             </g>
           </svg>
-          <p className="intro__bookmark__text">Bookmark</p>
+          <div className="intro__bookmark__text">Bookmark</div>
         </button>
       </div>
     </div>

@@ -26,6 +26,7 @@ function App() {
 
   return (
     <>
+      <h1>Crowdfunding product page</h1>
       {isVisibleHamburger ? (
         <div id="bg-hamburger" style={{ display: "block" }} />
       ) : (
